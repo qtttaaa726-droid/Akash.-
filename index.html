@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Anjani, Will You Be My Valentine? 💕</title>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    padding: 45px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+h1 {
+    color: #ff2f6e;
+    font-size: 38px;
+}
+
+p {
+    font-size: 22px;
+    color: #555;
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 15px;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: #ff2f6e;
+    color: white;
+}
+
+#yesBtn:hover {
+    background: #ff004f;
+}
+
+#noBtn {
+    background: #ddd;
+}
+
+.heart {
+    position: absolute;
+    font-size: 24px;
+    animation: float 6s linear infinite;
+    color: #ff2f6e;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Anjani 💖</h1>
+    <p>You make my heart smile every single day 😊</p>
+    <p>Will you be my Valentine? 💕</p>
+    <button id="yesBtn">Yes 😍</button>
+    <button id="noBtn">No 🙈</button>
+</div>
+
+<script>
+document.getElementById("yesBtn").onclick = function() {
+    document.body.innerHTML = `
+    <h1 style="color:white;text-align:center;margin-top:35vh;font-size:50px;">
+    Yay Anjani!! 💖💍<br>
+    I’m the luckiest person alive 😍
+    </h1>`;
+};
+
+document.getElementById("noBtn").onmouseover = function() {
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 50);
+    this.style.position = "absolute";
+    this.style.left = x + "px";
+    this.style.top = y + "px";
+};
+
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (20 + Math.random() * 30) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+  </html>
